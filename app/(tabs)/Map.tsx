@@ -9,7 +9,7 @@ export default function Calls() {
   }
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Calls go in here</Text>
+      <Text style={styles.title}>Let's go to Mozambiaque</Text>
     </View>
   );
 }

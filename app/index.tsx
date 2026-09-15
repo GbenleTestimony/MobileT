@@ -6,7 +6,7 @@ export default function Index() {
   const router = useRouter();
 
   function SignUpScreenOn() {
-    router.push({ pathname: "/(auth)/Login" });
+    router.push({ pathname: "/(auth)/login" });
   }
   function LoginScreenOn() {
     router.push({ pathname: "/(tabs)/Chats" });

@@ -13,7 +13,7 @@ export default function AuthLayout() {
       }}
     >
       <Stack.Screen
-        name="Login"
+        name="login"
         options={{
           headerShown: true,
           headerBackground() {
@@ -37,7 +37,7 @@ export default function AuthLayout() {
         }}
       />
       <Stack.Screen
-        name="Register"
+        name="register"
         options={{ headerShown: true, title: "SignUp" }}
       />
       <Stack.Screen

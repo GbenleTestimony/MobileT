@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { Text } from "expo-router/build/react-navigation";
-import { GestureResponderEvent, TouchableOpacity } from "react-native";
+import { GestureResponderEvent, TouchableOpacity, View } from "react-native";
 
 export default function TabLayout() {
   return (
@@ -14,6 +14,7 @@ export default function TabLayout() {
         tabBarLabelStyle: {
           fontSize: 15,
         },
+        tabBarShowLabel: false,
         tabBarButton: ({ onPress, style, children }) => (
           <TouchableOpacity
             onPress={onPress as (event: GestureResponderEvent) => void}
@@ -24,6 +25,7 @@ export default function TabLayout() {
           </TouchableOpacity>
         ),
         tabBarStyle: {
+          height: 110,
           backgroundColor: "#ffffff",
           borderTopWidth: 1,
           borderTopColor: "#e5e5e5",
@@ -38,103 +40,277 @@ export default function TabLayout() {
             fontWeight: "bold",
             fontSize: 25,
           },
-          title: "Kasper",
+          title: "Chats",
+          tabBarBadge: 6,
+          tabBarBadgeStyle: {
+            color: "white",
+            backgroundColor: "gray",
+          },
+          tabBarIcon: ({ color, focused }) => (
+            <View
+              style={{
+                // backgroundColor: "green",
+                marginTop: 15,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 70,
+
+                height: 50,
+              }}
+            >
+              <View
+                style={
+                  focused
+                    ? {
+                        width: 70,
+                        height: 35,
+                        backgroundColor: "rgba(0, 0, 0, 0.2)",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: 20,
+                      }
+                    : {
+                        width: 70,
+                        height: 35,
+
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: 20,
+                        backgroundColor: "transparent",
+                      }
+                }
+              >
+                <Ionicons
+                  name={focused ? "chatbubble" : "chatbubble-outline"}
+                  size={24}
+                  color={color}
+                />
+              </View>
+              <Text
+                style={
+                  focused
+                    ? { textAlign: "center", fontWeight: "bold" }
+                    : { textAlign: "center" }
+                }
+              >
+                Chats
+              </Text>
+            </View>
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="Map"
+        options={{
+          headerTitleAlign: "left",
+          title: "Map",
           headerShown: true,
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 25,
+          },
+          tabBarIcon: ({ color, focused }) => (
+            <View
+              style={{
+                // backgroundColor: "green",
+                marginTop: 15,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 70,
+
+                height: 50,
+              }}
+            >
+              <View
+                style={
+                  focused
+                    ? {
+                        width: 70,
+                        height: 35,
+                        backgroundColor: "rgba(0, 0, 0, 0.2)",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: 20,
+                      }
+                    : {
+                        width: 70,
+                        height: 35,
+
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: 20,
+                        backgroundColor: "transparent",
+                      }
+                }
+              >
+                <Ionicons
+                  name={focused ? "locate" : "locate-outline"}
+                  size={24}
+                  color={color}
+                />
+              </View>
+              <Text
+                style={
+                  focused
+                    ? { textAlign: "center", fontWeight: "bold" }
+                    : { textAlign: "center" }
+                }
+              >
+                Map
+              </Text>
+            </View>
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="Video"
+        options={{
+          headerTitleAlign: "left",
+          title: "Video",
+          headerShown: true,
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 25,
+          },
           tabBarLabel: ({ focused, color }) => (
             <Text
               style={{
                 color: color,
-                fontSize: focused ? 14 : 11,
+                fontSize: 14,
                 fontWeight: focused ? "bold" : "normal",
               }}
             >
-              Chats
+              Video
             </Text>
           ),
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? "chatbubble" : "chatbubble-outline"}
-              size={24}
-              color={color}
-            />
+            <View
+              style={{
+                // backgroundColor: "green",
+                marginTop: 15,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 70,
+
+                height: 50,
+              }}
+            >
+              <View
+                style={
+                  focused
+                    ? {
+                        width: 70,
+                        height: 35,
+                        backgroundColor: "rgba(0, 0, 0, 0.2)",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: 20,
+                      }
+                    : {
+                        width: 70,
+                        height: 35,
+
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: 20,
+                        backgroundColor: "transparent",
+                      }
+                }
+              >
+                <Ionicons
+                  name={focused ? "videocam" : "videocam-outline"}
+                  size={24}
+                  color={color}
+                />
+              </View>
+              <Text
+                style={
+                  focused
+                    ? { textAlign: "center", fontWeight: "bold" }
+                    : { textAlign: "center" }
+                }
+              >
+                Video
+              </Text>
+            </View>
           ),
         }}
       />
       <Tabs.Screen
-        name="Calls"
+        name="Weather"
         options={{
           headerTitleAlign: "left",
-          title: "Calls",
+          title: "Weather",
           headerShown: true,
-          tabBarLabel: ({ focused, color }) => (
-            <Text
-              style={{
-                color: color,
-                fontSize: focused ? 14 : 11,
-                fontWeight: focused ? "bold" : "normal",
-              }}
-            >
-              Calls
-            </Text>
-          ),
-          tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons
-              name={focused ? "call" : "call-outline"}
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="Updates"
-        options={{
-          headerTitleAlign: "left",
-          title: "Updates",
-          headerShown: true,
-          tabBarLabel: ({ focused, color }) => (
-            <Text
-              style={{
-                color: color,
-                fontSize: focused ? 14 : 11,
-                fontWeight: focused ? "bold" : "normal",
-              }}
-            >
-              Updates
-            </Text>
-          ),
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 25,
+          },
+
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? "chatbubbles" : "chatbubbles-outline"}
-              size={24}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="Tools"
-        options={{
-          headerTitleAlign: "left",
-          title: "Tools",
-          headerShown: true,
-          tabBarLabel: ({ focused, color }) => (
-            <Text
+            <View
               style={{
-                color: color,
-                fontSize: focused ? 14 : 11,
-                fontWeight: focused ? "bold" : "normal",
+                // backgroundColor: "green",
+                marginTop: 15,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 70,
+
+                height: 50,
               }}
             >
-              Tools
-            </Text>
-          ),
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? "bar-chart" : "bar-chart-outline"}
-              size={24}
-              color={color}
-            />
+              <View
+                style={
+                  focused
+                    ? {
+                        width: 70,
+                        height: 35,
+                        backgroundColor: "rgba(0, 0, 0, 0.2)",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: 20,
+                      }
+                    : {
+                        width: 70,
+                        height: 35,
+
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: 20,
+                        backgroundColor: "transparent",
+                      }
+                }
+              >
+                <Ionicons
+                  name={focused ? "cloud" : "cloud-outline"}
+                  size={24}
+                  color={color}
+                />
+              </View>
+              <Text
+                style={
+                  focused
+                    ? { textAlign: "center", fontWeight: "bold" }
+                    : { textAlign: "center" }
+                }
+              >
+                Weather
+              </Text>
+            </View>
           ),
         }}
       />

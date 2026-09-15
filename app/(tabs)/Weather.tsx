@@ -5,7 +5,7 @@ export default function Tools() {
   const router = useRouter();
   return (
     <View style={styles.container}>
-      <Text style={styles.title}> Tools are in here</Text>
+      <Text style={styles.title}> What's the weather in Ado Ekiti</Text>
     </View>
   );
 }

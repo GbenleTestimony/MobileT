@@ -2,9 +2,11 @@ import { demoUsers } from "@/src/files/users";
 import { useRouter } from "expo-router";
 import { Pressable, ScrollView, StyleSheet, Text } from "react-native";
 
+
 export default function Chats() {
   const router = useRouter();
   return (
+
     <ScrollView
       style={styles.list}
       contentContainerStyle={{
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   list: {
-    padding: 20,
+    paddingHorizontal: 20,
     flex: 1,
   },
   pressable: {
