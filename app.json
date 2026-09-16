@@ -20,9 +20,13 @@
     },
     "plugins": [
       "expo-router",
+      ["expo-splash-screen", {}],
       [
-        "expo-splash-screen",
-        {}
+        "expo-media-library",
+        {
+          "photoPermissions": "Allow Kasper to save photos",
+          "savePhotosPermission": "Allow Kasper to save photos"
+        }
       ],
       "expo-video"
     ],

@@ -1,7 +1,12 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { Text } from "expo-router/build/react-navigation";
-import { GestureResponderEvent, TouchableOpacity, View } from "react-native";
+import {
+  GestureResponderEvent,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 export default function TabLayout() {
   return (
@@ -25,23 +30,24 @@ export default function TabLayout() {
           </TouchableOpacity>
         ),
         tabBarStyle: {
+          // marginTop:
           height: 110,
           backgroundColor: "#ffffff",
-          borderTopWidth: 1,
-          borderTopColor: "#e5e5e5",
+          // borderTopWidth: 1,
+          // borderTopColor: "#e5e5e5",
         },
       }}
     >
       <Tabs.Screen
         name="Chats"
         options={{
+          title: "Chats",
           headerTitleAlign: "left",
           headerTitleStyle: {
             fontWeight: "bold",
             fontSize: 25,
           },
-          title: "Chats",
-          tabBarBadge: 6,
+          // tabBarBadge: 6,
           tabBarBadgeStyle: {
             color: "white",
             backgroundColor: "gray",
@@ -50,12 +56,12 @@ export default function TabLayout() {
             <View
               style={{
                 // backgroundColor: "green",
-                marginTop: 15,
+                marginTop: 30,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 width: 70,
-
+                position: "absolute",
                 height: 50,
               }}
             >
@@ -70,16 +76,17 @@ export default function TabLayout() {
                         justifyContent: "center",
                         alignItems: "center",
                         borderRadius: 20,
+                        position: "relative",
                       }
                     : {
                         width: 70,
                         height: 35,
-
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
                         borderRadius: 20,
                         backgroundColor: "transparent",
+                        position: "relative",
                       }
                 }
               >
@@ -106,8 +113,13 @@ export default function TabLayout() {
       <Tabs.Screen
         name="Map"
         options={{
+          // title: "Map",
+          headerTitle: () => (
+            <View>
+              <TextInput placeholder="search..." autoFocus></TextInput>
+            </View>
+          ),
           headerTitleAlign: "left",
-          title: "Map",
           headerShown: true,
           headerTitleStyle: {
             fontWeight: "bold",
@@ -117,7 +129,7 @@ export default function TabLayout() {
             <View
               style={{
                 // backgroundColor: "green",
-                marginTop: 15,
+                marginTop: 30,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -173,8 +185,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="Video"
         options={{
-          headerTitleAlign: "left",
           title: "Video",
+          headerTitleAlign: "left",
           headerShown: true,
           headerTitleStyle: {
             fontWeight: "bold",
@@ -195,7 +207,7 @@ export default function TabLayout() {
             <View
               style={{
                 // backgroundColor: "green",
-                marginTop: 15,
+                marginTop: 30,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -252,6 +264,13 @@ export default function TabLayout() {
         options={{
           headerTitleAlign: "left",
           title: "Weather",
+          headerRight: () => (
+            // <SafeAreaView>
+            <View>
+              <Ionicons name={"videocam"} size={20} color={"black"}></Ionicons>
+            </View>
+            // </SafeAreaView>
+          ),
           headerShown: true,
           headerTitleStyle: {
             fontWeight: "bold",
@@ -262,7 +281,7 @@ export default function TabLayout() {
             <View
               style={{
                 // backgroundColor: "green",
-                marginTop: 15,
+                marginTop: 30,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",

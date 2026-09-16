@@ -2,11 +2,9 @@ import { demoUsers } from "@/src/files/users";
 import { useRouter } from "expo-router";
 import { Pressable, ScrollView, StyleSheet, Text } from "react-native";
 
-
 export default function Chats() {
   const router = useRouter();
   return (
-
     <ScrollView
       style={styles.list}
       contentContainerStyle={{
