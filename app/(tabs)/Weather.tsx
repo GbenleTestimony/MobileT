@@ -68,10 +68,12 @@ export default function Weather() {
         if (status !== "granted") {
           Alert.alert("We actually need access to your photo gallery");
         }
-
+        if (status === "granted") {
+          await Asset.create(photo.uri);
+        }
         // await MediaLibrary.createAssetAsync(photo.uri);
-        await Asset.create(photo.uri);
-        Alert.alert("The picture has been saved to your phone!");
+
+        // Alert.alert("The picture has been saved to your phone!");
       } catch (error) {
         console.error("Execution Failed", error);
         Alert.alert("An error occurred while moving the file to your gallery");
